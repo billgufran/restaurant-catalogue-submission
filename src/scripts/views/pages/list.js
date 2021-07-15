@@ -1,17 +1,16 @@
 import RestaurantDataSource from '../../data/restaurant-api-source';
-import {
-  // createHeroElementTemplate,
-  createRestaurantItemTemplate,
-} from '../templates/template-creator';
+import { createRestaurantItemTemplate } from '../templates/template-creator';
 
 const RestaurantList = {
   async render() {
     return `
 	  <div id="hero" class="hero">
       <picture>
-        <source type="image/webp" srcset="./images/heros/hero-image_2.webp">
-        <source type="image/jpeg" srcset="./images/heros/hero-image_2.jpg">
-        <img src="./images/heros/hero-image_2.jpg">
+        <source media="(max-width: 600px)" type="image/jpeg" srcset="./images/heros/hero-image_2-mobile.jpg">
+        <source media="(max-width: 600px)" type="image/webp" srcset="./images/heros/hero-image_2-mobile.webp">
+        <source type="image/webp" srcset="./images/heros/hero-image_2-desktop.webp">
+        <source type="image/jpeg" srcset="./images/heros/hero-image_2-desktop.jpg">
+        <img src="./images/heros/hero-image_2-desktop.jpg">
       </picture>
       <div class="hero__inner">
         <h1 class="hero__title">
@@ -43,7 +42,7 @@ const RestaurantList = {
       async ({
         id, name, city, rating, description, pictureId,
       }) => {
-        const imageSource = await RestaurantDataSource.restaurantImageSmall(pictureId);
+        const imageSource =					await RestaurantDataSource.restaurantImageSmall(pictureId);
         $restaurants.innerHTML += createRestaurantItemTemplate({
           id,
           imageSource,

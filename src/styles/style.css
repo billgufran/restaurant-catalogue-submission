@@ -100,9 +100,16 @@ body {
 	overflow: hidden;
 }
 
-.hero img,picture {
-	min-width: 100%;
+#hero > picture {
+	height: 100%;
+	width: 100%;
 	background-color: black;
+}
+
+#hero > picture > img {
+	height: 100%;
+	width: 100vw;
+	object-fit: cover;
 }
 
 .hero__inner {

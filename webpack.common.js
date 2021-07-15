@@ -43,7 +43,7 @@ module.exports = {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
           globOptions: {
-            ignore: [path.resolve(__dirname, 'src/public/images/heros')],
+            ignore: ['**/*-original.jpg'],
           },
         },
       ],
@@ -56,7 +56,7 @@ module.exports = {
         {
           test: /\.(jpe?g|png)/,
           options: {
-            quality: 75,
+            quality: 90,
           },
         },
       ],

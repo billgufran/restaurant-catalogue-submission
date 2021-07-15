@@ -3,23 +3,15 @@ const fs = require('fs');
 const path = require('path');
 
 const target = path.resolve(__dirname, 'src/public/images/heros');
-const destination = path.resolve(__dirname, 'dist/images/heros');
-
-if (!fs.existsSync(destination)) {
-  fs.mkdirSync(destination, { recursive: true }, (err) => console.log(err));
-}
 
 fs.readdirSync(target)
   .forEach((image) => {
     sharp(`${target}/${image}`)
-      .resize(800)
-      .toFile(path.resolve(__dirname, `${destination}/${image.split('.')
-        .slice(0, -1)
-        .join('.')}-large.jpg`));
+      .resize(1200)
+      .toFile(path.resolve(__dirname, `${target}/${image.replace('-original.', '-desktop.')}`));
 
     sharp(`${target}/${image}`)
+      .rotate(90)
       .resize(480)
-      .toFile(path.resolve(__dirname, `${destination}/${image.split('.')
-        .slice(0, -1)
-        .join('.')}-small.jpg`));
+      .toFile(path.resolve(__dirname, `${target}/${image.replace('-original.', '-mobile.')}`));
   });
