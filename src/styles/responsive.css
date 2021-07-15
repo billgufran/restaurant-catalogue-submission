@@ -1,0 +1,77 @@
+@media screen and (min-width: 650px) {
+	.app-bar {
+		grid-template-columns: 1fr auto;
+		padding: 8px 32px;
+	}
+
+	.app-bar .app-bar__brand h1 {
+		font-size: 1.5em;
+	}
+
+	.app-bar .app-bar__menu {
+		display: none;
+	}
+
+	.app-bar .app-bar__navigation {
+		position: static;
+		width: 100%;
+	}
+
+	.app-bar .app-bar__navigation ul li {
+		display: inline-block;
+	}
+
+	.app-bar .app-bar__navigation ul li a {
+		display: inline-block;
+		width: 120px;
+		text-align: center;
+		margin: 0;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.app-bar .app-bar__brand h1 {
+		font-size: 2em;
+	}
+
+	.restaurant__menus dl {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.restaurant__detail {
+		grid-template-columns: auto 1fr;
+	}
+
+	.restaurant__image {
+		max-width: 400px;
+	}
+
+	.list {
+		grid-template-columns: 1fr 1fr;
+		gap: 31px 11px;
+	}
+
+	.list-item {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.list {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.restaurant__detail {
+		gap: 28px;
+	}
+
+	.restaurant__image {
+		max-width: 32vw;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.list {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
