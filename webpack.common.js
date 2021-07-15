@@ -1,5 +1,4 @@
 /* eslint-disable prefer-destructuring */
-/* eslint-disable import/no-extraneous-dependencies */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
@@ -43,6 +42,9 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
+          globOptions: {
+            ignore: [path.resolve(__dirname, 'src/public/images/heros')],
+          },
         },
       ],
     }),
@@ -54,7 +56,7 @@ module.exports = {
         {
           test: /\.(jpe?g|png)/,
           options: {
-            quality: 50,
+            quality: 75,
           },
         },
       ],
